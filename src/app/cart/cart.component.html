@@ -1,0 +1,35 @@
+<div class="bg-main-light p-4 my-4 ">
+    <div class="row d-flex justify-content-between align-items-center border-bottom">
+        <div class="col-md-10">
+            <h3>Shop Cart</h3>
+            <h6 class="text-main">Total Price : {{cartDetails?.totalCartPrice}} EGP</h6>
+        </div>
+        <div class="col-md-2 ">
+            <button (click)="removeAllCart()" class="btn m-0 p-0"><i class="fa-regular fa-trash-can text-main"></i> Remove All Cart</button>
+        </div>
+    </div>
+
+    <div class="row border-bottom py-3 align-items-center" *ngFor="let product of cartDetails?.products">
+        <div class="col-md-1">
+            <img [src]="product.product.imageCover" alt="" class="w-100">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between">
+            <div>
+                <h6>{{product.product.title}}</h6>
+                <h6 class="text-main">Price : {{product.price}}</h6>
+                <button (click)="removeItem(product.product._id)" class="btn m-0 p-0"><i class="fa-regular fa-trash-can text-main"></i> Remove</button>
+            </div>
+            <div>
+                <button (click)="updateItemCount(product.product._id , product.count + 1)" class="btn border-main btn-sm">+</button>
+                <span class="mx-2">{{product.count}}</span>
+                <button (click)="updateItemCount(product.product._id , product.count - 1)" class="btn border-main btn-sm">-</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn my-3 bg-main text-white">
+        <a routerLink="/checkout">
+            Online Payment <img width="50px" src="assets/images/visa.jpg" alt="">
+        </a>
+    </button>
+</div>

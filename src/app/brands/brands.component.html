@@ -1,0 +1,12 @@
+<div class="row py-5">
+    <div *ngFor="let brand of brands" class="col-md-3">
+        <div class="product px-2 py-4">
+            <a [routerLink]="['/branddetails' ,  brand._id]">
+                <img class="w-100" src={{brand.image}}>
+                <span class="text-main fw-bold font-sm">{{brand.name}}</span>
+    
+                <button class="btn bg-main text-white w-100 my-2"> + More</button>
+            </a>
+        </div>
+    </div>
+</div>

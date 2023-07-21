@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light ">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="assets/images/logo/freshcart-logo.svg"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a *ngIf="isLogin" class="nav-link hov" routerLink="home" routerLinkActive="bg-main text-white">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="isLogin" class="nav-link hov" routerLink="brands" routerLinkActive="bg-main text-white">Brand</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a *ngIf="!isLogin" class="nav-link hov" routerLink="login" routerLinkActive="bg-main text-white">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!isLogin" class="nav-link hov" routerLink="register" routerLinkActive="bg-main text-white">Register</a>
+                </li>
+                <li class="nav-item">
+                    <span (click)="logOut()" *ngIf="isLogin" class="cursor-pointer nav-link hov" >LogOut</span>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="isLogin" class="nav-link hov position-relative" routerLink="cart" >
+                        <i class="fas fa-cart-shopping text-main fa-lg"></i>
+                        <span class="badge bg-main text-white top-0 end-0 position-absolute">{{cartNumbers}}</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
